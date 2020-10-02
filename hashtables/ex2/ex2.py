@@ -10,5 +10,16 @@ def reconstruct_trip(tickets, length):
     YOUR CODE HERE
     """
     # Your code here
+    dict = {}
 
+    route = [None] * length
+
+    for ticket in tickets:
+        dict[ticket.source] = ticket.destination
+    next = dict["NONE"]
+
+    for j in range(0, length):
+        route[j] = next
+        
+        next = dict[next]
     return route
